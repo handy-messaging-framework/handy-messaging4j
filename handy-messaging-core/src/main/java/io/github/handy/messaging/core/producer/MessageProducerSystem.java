@@ -46,7 +46,7 @@ public class MessageProducerSystem {
      * @param queueName The queue name
      */
     public MessageProducerSystem(String profile, String queueName){
-       Profile producerProfile =  BootConfiguration.getConfiguration().getEclectiqueConfiguration()
+       Profile producerProfile =  BootConfiguration.getConfiguration().getHandyMessagingConfiguration()
                 .getProfiles()
                 .stream()
                 .filter(profileSystem -> profileSystem.getProfileName().equals(profile))

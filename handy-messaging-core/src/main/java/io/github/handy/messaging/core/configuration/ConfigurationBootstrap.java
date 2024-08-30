@@ -33,7 +33,7 @@ import java.io.InputStream;
 public class ConfigurationBootstrap {
 
     static {
-        InputStream confStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("eclectique-conf.yml");
+        InputStream confStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("hmf4j-conf.yml");
         try {
             BootConfiguration.configuration = ConfigurationSerializer.deserialize(confStream);
         } catch (IOException e) {

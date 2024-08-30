@@ -25,7 +25,7 @@
 package io.github.handy.messaging.core.configuration;
 
 /**
- * Class holds the configuration defined in the file `eclectique-conf.yml`
+ * Class holds the configuration defined in the file `hmf4j-conf.yml`
  */
 public class BootConfiguration {
     static ConfigurationRoot configuration;

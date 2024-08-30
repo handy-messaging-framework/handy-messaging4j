@@ -41,7 +41,7 @@ public class MessageReceiver implements MessageHandler {
     }
 
     /**
-     * Function gets invoked when a message gets picked by the Eclectique Consumer.
+     * Function gets invoked when a message gets picked by the handy messaging Consumer.
      * The consumer dispatches the message to this function
      * @param msg The deserialized message object consumer reads from the message queue
      */

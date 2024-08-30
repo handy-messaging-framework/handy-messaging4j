@@ -20,7 +20,7 @@
     </properties>
 
     <scm>
-        <url>https://github.com/aronsajan/eclectique-messaging4j</url>
+        <url>https://github.com/handy-messaging-framework/handy-messaging4j</url>
     </scm>
 
     <dependencies>

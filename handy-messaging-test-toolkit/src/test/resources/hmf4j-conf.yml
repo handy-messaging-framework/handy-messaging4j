@@ -1,4 +1,4 @@
-eclectique:
+hmf4j:
   profiles:
     - profileName: photonTestProfile
       system: photon-mq

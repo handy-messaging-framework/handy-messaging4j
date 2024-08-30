@@ -59,7 +59,7 @@ public class HandyMessagingConfiguration implements Cloneable{
 
     /**
      * Clones the configuration
-     * @return EclectiqueConfiguration object
+     * @return HandyMessagingConfiguration object
      */
     @Override
     public HandyMessagingConfiguration clone() {

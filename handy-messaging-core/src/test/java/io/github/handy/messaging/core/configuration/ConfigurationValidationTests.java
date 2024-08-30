@@ -42,14 +42,14 @@ public class ConfigurationValidationTests {
 
     @Test
     public void verifyProfiles(){
-        Assert.assertEquals(4, this.configRoot.getEclectiqueConfiguration().getProfiles().size());
+        Assert.assertEquals(4, this.configRoot.getHandyMessagingConfiguration().getProfiles().size());
         Set<String> validProfileNames = new HashSet<>(){{
             add("profile1");
             add("profile2");
             add("profile3");
             add("profile4");
         }};
-        this.configRoot.getEclectiqueConfiguration().getProfiles().forEach(profile ->{
+        this.configRoot.getHandyMessagingConfiguration().getProfiles().forEach(profile ->{
             Assert.assertEquals(true, validProfileNames.contains(profile.getProfileName()));
         });
     }

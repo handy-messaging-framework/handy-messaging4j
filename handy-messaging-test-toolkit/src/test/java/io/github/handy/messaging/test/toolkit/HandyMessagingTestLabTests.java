@@ -30,15 +30,15 @@ import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
-public class EclectiqueTestLabTests {
+public class HandyMessagingTestLabTests {
 
-    private static EclectiqueTestLab testLab;
+    private static HandyMessagingTestLab testLab;
 
 
     @BeforeClass
     public static void setup() {
 
-        EclectiqueTestLab.EclectiqueTestLabBuilder labBuilder = new EclectiqueTestLab.EclectiqueTestLabBuilder()
+        HandyMessagingTestLab.HandyMessagingTestLabBuilder labBuilder = new HandyMessagingTestLab.HandyMessagingTestLabBuilder()
                 .addListener("photonTestProfile",
                         "testqueue",
                         "io.github.handy.messaging.types.simplemessage.SimpleMessage");

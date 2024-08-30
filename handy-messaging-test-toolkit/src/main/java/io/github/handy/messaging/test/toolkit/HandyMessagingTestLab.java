@@ -43,7 +43,7 @@ import java.util.stream.Collectors;
  * Class coordinating the analysis of messages within one or more queues.
  * These analysis can be verified in test cases
  */
-public class EclectiqueTestLab {
+public class HandyMessagingTestLab {
 
     Map<String, Map<String, ActorRef>> messageRetentionActorRegistry;
 
@@ -51,9 +51,9 @@ public class EclectiqueTestLab {
 
     ActorSystem testSystem;
 
-    private EclectiqueTestLab(EclectiqueTestLabBuilder builder){
+    private HandyMessagingTestLab(HandyMessagingTestLabBuilder builder){
         this.messageRetentionActorRegistry = builder.messageRetentionActorRegistry;
-        this.testSystem = builder.eclectiqueTestSystem;
+        this.testSystem = builder.handyMessagingTestSystem;
         this.photonAdmin = builder.photonAdmin;
     }
 
@@ -70,24 +70,24 @@ public class EclectiqueTestLab {
    }
 
     /**
-     * Builder class used to build the EclectiqueTestLab instance
+     * Builder class used to build the HandyMessagingTestLab instance
      */
-   public static class EclectiqueTestLabBuilder{
+   public static class HandyMessagingTestLabBuilder{
 
-       Logger LOGGER = LoggerFactory.getLogger(EclectiqueTestLabBuilder.class);
+       Logger LOGGER = LoggerFactory.getLogger(HandyMessagingTestLabBuilder.class);
         private List<AnalysisQueueInfo> analysisQueues;
         private PhotonMessagingAdministrator photonAdmin;
 
-       private ActorSystem eclectiqueTestSystem;
+       private ActorSystem handyMessagingTestSystem;
 
        Map<String, Map<String, ActorRef>> messageRetentionActorRegistry;
 
        Map<String, Profile> profileMap;
 
-       public EclectiqueTestLabBuilder(){
+       public HandyMessagingTestLabBuilder(){
            this.analysisQueues = new ArrayList<>();
            this.profileMap = new HashMap<>();
-           this.eclectiqueTestSystem = ActorSystem.create("EclectiqueTestAssist");
+           this.handyMessagingTestSystem = ActorSystem.create("HandyMessagingTestAssist");
            this.photonAdmin = new PhotonMessagingAdministrator();
            this.messageRetentionActorRegistry = new HashMap<>();
        }
@@ -97,9 +97,9 @@ public class EclectiqueTestLab {
           * @param profile Profile associated with the queue
           * @param queueName Name of the queue
           * @param messageType Class name of the message type that gets sent to the queue
-          * @return EclectiqueTestLabBuilder instance
+          * @return HandyMessagingTestLabBuilder instance
           */
-       public EclectiqueTestLabBuilder addListener(String profile, String queueName, String messageType){
+       public HandyMessagingTestLabBuilder addListener(String profile, String queueName, String messageType){
             this.analysisQueues.add(new AnalysisQueueInfo(profile, queueName, messageType));
             return this;
        }
@@ -151,9 +151,9 @@ public class EclectiqueTestLab {
 
        /**
         * Function initializes the test setup
-        * @return EclectiqueTestLab instance
+        * @return HandyMessagingTestLab instance
         */
-       public EclectiqueTestLab getTestLab(){
+       public HandyMessagingTestLab getTestLab(){
 
            LOGGER.info("Initializing test setup");
            new ConfigurationBootstrap();
@@ -173,7 +173,7 @@ public class EclectiqueTestLab {
 
            this.analysisQueues.forEach(queueInfo -> {
                Profile associatedProfile = this.profileMap.get(queueInfo.getProfileName());
-               ActorRef retentionActor = this.eclectiqueTestSystem.actorOf(MessageRetentionBufferActor.getActorProperties(),
+               ActorRef retentionActor = this.handyMessagingTestSystem.actorOf(MessageRetentionBufferActor.getActorProperties(),
                        String.format("RETENTION-%s-%s", queueInfo.getProfileName(), queueInfo.getQueueName()));
                this.messageRetentionActorRegistry.putIfAbsent(queueInfo.getProfileName(), new HashMap<>());
                this.messageRetentionActorRegistry.get(queueInfo.getProfileName()).put(queueInfo.getQueueName(), retentionActor);
@@ -184,7 +184,7 @@ public class EclectiqueTestLab {
                        messageHandler);
            });
 
-           return new EclectiqueTestLab(this);
+           return new HandyMessagingTestLab(this);
 
        }
 

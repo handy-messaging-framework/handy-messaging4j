@@ -36,7 +36,7 @@ public class ProfileHelper {
      */
     public static Profile getProfile(String profileName){
         return BootConfiguration.getConfiguration()
-                .getEclectiqueConfiguration()
+                .getHandyMessagingConfiguration()
                 .getProfiles()
                 .stream()
                 .filter(profile -> profile.profileName.equals(profileName))

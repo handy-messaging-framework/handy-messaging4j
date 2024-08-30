@@ -52,13 +52,13 @@ public class ConfigurationSerializer {
 
     /**
      * Serializes the configuration
-     * @param eclectiqueConfiguration ConfigurationRoot object
+     * @param handyMessagingConfiguration ConfigurationRoot object
      * @param outstream OutputStream to write the configuration
      * @throws IOException
      */
-    public static void serialize(ConfigurationRoot eclectiqueConfiguration, OutputStream outstream) throws IOException {
+    public static void serialize(ConfigurationRoot handyMessagingConfiguration, OutputStream outstream) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
-        objectMapper.writeValue(outstream, eclectiqueConfiguration);
+        objectMapper.writeValue(outstream, handyMessagingConfiguration);
     }
 
 }

@@ -31,14 +31,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class ConfigurationRoot implements Cloneable{
 
-    @JsonProperty("eclectique")
+    @JsonProperty("hmf4j")
     private HandyMessagingConfiguration handyMessagingConfiguration;
 
     /**
-     * Gets the eclectique configuration
-     * @return EclectiqueConfiguration object
+     * Gets the handymessaging configuration
+     * @return HandyMessagingConfiguration object
      */
-    public HandyMessagingConfiguration getEclectiqueConfiguration() {
+    public HandyMessagingConfiguration getHandyMessagingConfiguration() {
         return handyMessagingConfiguration;
     }
 

@@ -32,11 +32,11 @@ import org.springframework.stereotype.Component;
  * spring boot application starts
  */
 @Component
-public class EclectiqueMessagingInitializer {
+public class HandyMessagingInitializer {
     /**
      * Constructor that initializes the configuration
      */
-    public EclectiqueMessagingInitializer(){
+    public HandyMessagingInitializer(){
         new ConfigurationBootstrap();
     }
 }
