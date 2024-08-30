@@ -77,7 +77,7 @@ Here is how to verify the message from the producer:
     public void verifyMessagesTest() throws InterruptedException {
 
         EclectiqueTestLab testLab = new EclectiqueTestLab.EclectiqueTestLabBuilder()
-        .addListener("testSampleProfile","test_topic","com.eclectique.messaging.types.simplemessage.SimpleMessage").getTestLab();
+        .addListener("testSampleProfile","test_topic","io.github.handy.messaging.types.simplemessage.SimpleMessage").getTestLab();
         
         //Runs the producer which sends the message
         ProducerExec producer = new ProducerExec();

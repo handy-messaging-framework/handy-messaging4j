@@ -131,7 +131,7 @@ public class SimpleConsumer {
      */
 
     String getMessageTypeClass(){
-        return "com.eclectique.messaging.types.simplemessage.SimpleMessage";
+        return "io.github.handy.messaging.simplemessage.SimpleMessage";
     }
 
     /**

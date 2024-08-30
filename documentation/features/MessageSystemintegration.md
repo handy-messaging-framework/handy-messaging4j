@@ -30,7 +30,7 @@ public class SampleMessageProcessor extends MessageHandlerFoundation {
 
     @Override
     protected String getMessageTypeClass() {
-        return "com.eclectique.messaging.types.simplemessage.SimpleMessage";
+        return "io.github.handy.messaging.types.simplemessage.SimpleMessage";
     }
 
     @Override
