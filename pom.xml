@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.eclectique</groupId>
+    <artifactId>eclectique-messaging4j</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <description>A library abstracting various messaging systems. Allows a producer and consumer to interact in an asynchronous messaging system</description>
+    <modules>
+        <module>eclectique-messaging-core</module>
+        <module>eclectique-messaging-interface</module>
+        <module>eclectique-messaging-kafka-connector</module>
+        <module>eclectique-messaging-springboot</module>
+        <module>eclectique-messaging-google-pubsub-connector</module>
+        <module>eclectique-messaging-types-simplemessage</module>
+        <module>eclectique-messaging-test-toolkit</module>
+        <module>eclectique-messaging-photon-mq</module>
+        <module>eclectique-messaging-photon-connector</module>
+        <module>eclectique-messaging-mqtt-connector</module>
+    </modules>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Aron Sajan Philip</name>
+            <email>arondeveloper@yahoo.com</email>
+            <organization>com.github.aronsajan</organization>
+            <organizationUrl>https://aronsajan.github.io/</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/aronsajan/eclectique-messaging4j</url>
+    </scm>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.6.3</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

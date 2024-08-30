@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>eclectique-messaging4j</artifactId>
+        <groupId>com.eclectique</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>eclectique-messaging-springboot</artifactId>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Aron Sajan Philip</name>
+            <email>arondeveloper@yahoo.com</email>
+            <organization>com.github.aronsajan</organization>
+            <organizationUrl>https://aronsajan.github.io/</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/aronsajan/eclectique-messaging4j</url>
+    </scm>
+
+    <dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+        <version>3.1.4</version>
+    </dependency>
+        <dependency>
+            <groupId>com.eclectique</groupId>
+            <artifactId>eclectique-messaging-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.eclectique</groupId>
+            <artifactId>eclectique-messaging-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+</project>

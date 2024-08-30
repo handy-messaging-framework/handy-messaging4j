@@ -1,0 +1,13 @@
+eclectique:
+  profiles:
+    - profileName: photonTestProfile
+      system: photon-mq
+      consumer:
+        properties:
+          application.id: "validation_tool"
+          photon.messaging.instance: "validation_instance"
+          max.messages.per.batch: 3
+          max.poll.duration.millis: 15000
+      producer:
+        properties:
+          photon.messaging.instance: "validation_instance"

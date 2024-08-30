@@ -1,0 +1,53 @@
+eclectique:
+  profiles:
+    - profileName: profile1
+      system: kafka
+      consumer:
+        properties:
+          bootstrap.servers: localhost:9092
+          group.id: test_app
+          max.messages.per.batch: 3
+          max.poll.duration.millis: 10000
+      producer:
+        properties:
+          bootstrap.servers: localhost:9092
+    - profileName: profile2
+      system: google-pubsub
+      producer:
+        properties:
+          emulator.exec.flag: true
+          host.name: "localhost"
+          host.port: 8085
+          project.id: "sample-pubsub"
+    - profileName: profile3
+      system: photon-mq
+      consumer:
+        properties:
+          application.id: "validation_tool"
+          photon.messaging.instance: "validation_instance"
+          max.messages.per.batch: 3
+          max.poll.duration.millis: 15000
+      producer:
+        properties:
+          photon.messaging.instance: "validation_instance"
+    - profileName: profile4
+      system: mqtt
+      consumer:
+        properties:
+          mqtt.broker.host: localhost
+          mqtt.broker.port: 1883
+          mqtt.automatic_reconnect.flag: true
+          mqtt.broker.username: testuser
+          mqtt.broker.password: testpass
+          max.messages.per.batch: 1
+          max.poll.duration.millis: 15000
+          connection.timeout.sec: 10
+      producer:
+        properties:
+          mqtt.broker.host: localhost
+          mqtt.broker.port: 1883
+          mqtt.automatic_reconnect.flag: true
+          mqtt.broker.username: testuser
+          mqtt.broker.password: testpass
+          connection.timeout.sec: 10
+          mqtt.qos: 2
