@@ -8,8 +8,9 @@
         <artifactId>hmf4j</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
     <artifactId>hmf4j-types-simplemessage</artifactId>
+    <name>Handy-Messaging-Framework4J SimpleProtoMessage</name>
+    <description>SimpleProtoMessage type for Handy-Messaging-Framework4j</description>
 
     <licenses>
         <license>

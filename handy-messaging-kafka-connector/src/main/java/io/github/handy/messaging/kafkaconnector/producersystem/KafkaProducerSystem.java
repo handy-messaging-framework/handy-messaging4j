@@ -30,6 +30,7 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 
+import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -46,8 +47,27 @@ public class KafkaProducerSystem extends Producer {
 
     @Override
     public void sendMessage(Message message) {
+        this.sendMessage(Optional.empty(), message);
+    }
+
+    /**
+     * Sends a message to the Kafka Queue
+     * @param key Key for the message
+     * @param message Message to be sent
+     */
+    @Override
+    public void sendMessage(String key, Message message) {
+        this.sendMessage(Optional.of(key), message);
+    }
+
+    private void sendMessage(Optional<String> key, Message message){
         try {
-            ProducerRecord record = new ProducerRecord(this.getQueueName(), message.serialize());
+            ProducerRecord record;
+            if(key.isPresent()){
+                record = new ProducerRecord(this.getQueueName(), key.get(), message.serialize());
+            } else {
+                record = new ProducerRecord(this.getQueueName(), message.serialize());
+            }
             Future<RecordMetadata> sendHandle = this.kafkaProducer.send(record);
             sendHandle.get();
         } catch (InterruptedException interruptEx){

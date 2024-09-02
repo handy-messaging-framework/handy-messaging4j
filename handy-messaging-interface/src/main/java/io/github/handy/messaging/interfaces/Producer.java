@@ -54,6 +54,13 @@ public abstract class Producer {
     abstract public void sendMessage(Message message);
 
     /**
+     * Function to send a message with a key
+     * @param key - String representing the key
+     * @param message - Message object to be sent
+     */
+    abstract public void sendMessage(String key, Message message);
+
+    /**
      * Function to close the producer
      */
     abstract public void close();

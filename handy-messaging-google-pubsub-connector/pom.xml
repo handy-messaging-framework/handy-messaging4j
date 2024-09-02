@@ -10,6 +10,8 @@
     </parent>
 
     <artifactId>hmf4j-google-pubsub-connector</artifactId>
+    <name>Handy-Messaging-Framework4J Google PubSub Connector</name>
+    <description>Google PubSub Connector for Handy-Messaging-Framework4j</description>
 
     <licenses>
         <license>

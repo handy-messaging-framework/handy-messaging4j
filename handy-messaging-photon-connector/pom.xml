@@ -8,8 +8,9 @@
         <artifactId>hmf4j</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
     <artifactId>hmf4j-photon-connector</artifactId>
+    <name>Handy-Messaging-Framework4J Photon Connector</name>
+    <description>Photon connector for Handy-Messaging-Framework4j</description>
 
     <licenses>
         <license>

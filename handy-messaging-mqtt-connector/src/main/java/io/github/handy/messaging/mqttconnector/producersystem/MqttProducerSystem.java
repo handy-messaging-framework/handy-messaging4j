@@ -69,6 +69,7 @@ public class MqttProducerSystem extends Producer {
     @Override
     public void sendMessage(Message message) {
         try {
+            LOGGER.info("Sending message to the channel %s", this.getQueueName());
             MqttMessage mqttMessage = new MqttMessage();
             mqttMessage.setPayload(message.serialize());
             mqttMessage.setQos(this.qos);
@@ -78,6 +79,27 @@ public class MqttProducerSystem extends Producer {
             LOGGER.info("MQTT Producer sent message to topic {}", this.getQueueName());
 
         } catch (MqttException ex){
+            throw new RuntimeException(ex.getMessage());
+        }
+    }
+
+    /**
+     * Send message to the MQTT broker
+     * @param key - Key for the message
+     * @param message - Message to be sent
+     */
+    @Override
+    public void sendMessage(String key, Message message) {
+        try {
+            LOGGER.info("Sending message to the channel %s/%s", this.getQueueName(), key);
+            MqttMessage mqttMessage = new MqttMessage();
+            mqttMessage.setPayload(message.serialize());
+            mqttMessage.setQos(this.qos);
+            publisherClient.connect(this.connectionOptions);
+            publisherClient.publish(String.format("%s/%s", this.getQueueName(), key), mqttMessage);
+            publisherClient.disconnect();
+            LOGGER.info("MQTT Producer sent message with key {} to topic {}", key, this.getQueueName());
+        } catch (MqttException ex) {
             throw new RuntimeException(ex.getMessage());
         }
     }

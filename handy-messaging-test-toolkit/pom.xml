@@ -8,8 +8,9 @@
         <artifactId>hmf4j</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
     <artifactId>hmf4j-test-toolkit</artifactId>
+    <name>Handy-Messaging-Framework4J Test Toolkit</name>
+    <description>Test Toolkit for Handy-Messaging-Framework4j</description>
 
     <licenses>
         <license>

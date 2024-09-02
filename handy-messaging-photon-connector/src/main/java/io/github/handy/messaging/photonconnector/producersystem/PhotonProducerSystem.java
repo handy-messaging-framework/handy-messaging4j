@@ -65,6 +65,12 @@ public class PhotonProducerSystem extends Producer {
         }
     }
 
+    @Override
+    public void sendMessage(String key, Message message) {
+        LOGGER.warn(String.format("Photon Messaging Producer does not need key. Ignoring the key %s", key));
+        sendMessage(message);
+    }
+
     /**
      * Closes the Photon Producer Instance
      */

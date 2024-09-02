@@ -9,6 +9,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>hmf4j-photon-mq</artifactId>
+    <name>Handy-Messaging-Framework4J Photon Messaging System</name>
+    <description>Photon Messaging System is an in-memory messaging system for Handy-Messaging-Framework4j</description>
+
     <licenses>
         <license>
             <name>MIT License</name>

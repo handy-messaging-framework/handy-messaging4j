@@ -8,7 +8,7 @@
         <artifactId>hmf4j</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <name>hmf4j MQTT Connector</name>
+    <name>Handy-Messaging-Framework4J MQTT Connector</name>
     <description>MQTT Connector for Handy-Messaging-Framework4j</description>
 
     <artifactId>hmf4j-mqtt-connector</artifactId>

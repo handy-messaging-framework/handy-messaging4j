@@ -33,6 +33,8 @@ import com.google.pubsub.v1.PubsubMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Optional;
+
 public class PubSubProducerSystem extends Producer {
 
     Publisher publisher;
@@ -44,11 +46,21 @@ public class PubSubProducerSystem extends Producer {
 
     @Override
     public void sendMessage(Message message) {
+        sendMessage(Optional.empty(), message);
+    }
+
+    @Override
+    public void sendMessage(String key, Message message) {
+        sendMessage(Optional.of(key), message);
+    }
+
+    private void sendMessage(Optional<String> key, Message message) {
         try{
-            PubsubMessage pubSubMsg = PubsubMessage
+            PubsubMessage.Builder pubSubMsgBuilder = PubsubMessage
                     .newBuilder()
-                    .setData(ByteString.copyFrom(message.serialize()))
-                    .build();
+                    .setData(ByteString.copyFrom(message.serialize()));
+            key.ifPresent(pubSubMsgBuilder::setOrderingKey);
+            PubsubMessage pubSubMsg = pubSubMsgBuilder.build();
             ApiFuture publishHandle = publisher.publish(pubSubMsg);
             publishHandle.get();
         } catch(Exception ex){
