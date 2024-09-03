@@ -39,29 +39,27 @@ import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * PubSubConsumerSystem is a connector wrapper around a Google PubSub consumer
+ */
 public class PubSubConsumerSystem extends Consumer {
 
     private AtomicBoolean interruptionFlag;
-
     private Logger LOGGER = LoggerFactory.getLogger(PubSubConsumerSystem.class);
-
     private Subscriber subscriber;
-
     private String subscriptionName;
     private CredentialsProvider credentialsProvider;
-
     private TransportChannelProvider channelProvider;
-
-    Future pollThreadHandle;
-
+    private Future pollThreadHandle;
     private boolean emulatorFlag;
-
-    ExecutorService pollThreadManager;
-
-    List<PubSubMsgPackage> polledMessages;
-
+    private ExecutorService pollThreadManager;
+    private List<PubSubMsgPackage> polledMessages;
     String messageTypeClass;
 
+    /**
+     * Constructor for PubSubConsumerSystem
+     * @param builder - PubSubConsumerBuilder
+     */
     public PubSubConsumerSystem(PubSubConsumerBuilder builder){
         super(builder.getConsumerActor());
         this.subscriptionName = builder.getSubscriptionName();

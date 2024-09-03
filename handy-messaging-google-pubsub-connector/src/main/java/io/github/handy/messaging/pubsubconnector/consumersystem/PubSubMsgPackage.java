@@ -27,10 +27,13 @@ package io.github.handy.messaging.pubsubconnector.consumersystem;
 import com.google.cloud.pubsub.v1.AckReplyConsumer;
 import com.google.pubsub.v1.PubsubMessage;
 
+/**
+ * PubSubMsgPackage is an encapsulation that contains a PubSub message and the AckReplyConsumer to
+ * acknowledge the message
+ */
 public class PubSubMsgPackage {
 
     private PubsubMessage message;
-
     private AckReplyConsumer sender;
 
     public PubSubMsgPackage(PubsubMessage msg, AckReplyConsumer replyTo){
@@ -38,10 +41,18 @@ public class PubSubMsgPackage {
         this.sender = replyTo;
     }
 
+    /**
+     * Get the PubSub message
+     * @return - PubsubMessage
+     */
     public PubsubMessage getMessage() {
         return message;
     }
 
+    /**
+     * Get the AckReplyConsumer
+     * @return - AckReplyConsumer
+     */
     public AckReplyConsumer getSender() {
         return sender;
     }

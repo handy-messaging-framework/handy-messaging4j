@@ -3,3 +3,4 @@ documentation/.bundle/*
 eclectic-messaging-validator/.idea/*
 */target/*
 documentation/_site/*
+target/*

@@ -32,28 +32,49 @@ import com.google.protobuf.ByteString;
 import com.google.pubsub.v1.PubsubMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Optional;
 
+/**
+ * PubSubProducerSystem is a connector wrapper around a Google PubSub producer
+ */
 public class PubSubProducerSystem extends Producer {
 
-    Publisher publisher;
+    private Publisher publisher;
     private Logger LOGGER = LoggerFactory.getLogger(PubSubProducerSystem.class);
+
+    /**
+     * Constructor for PubSubProducerSystem
+     * @param builder - PubSubProducerBuilder
+     */
     public PubSubProducerSystem(PubSubProducerBuilder builder) {
         super(builder);
         this.publisher = builder.getPublisher();
     }
 
+    /**
+     * Send a message to the PubSub topic
+     * @param message - Message
+     */
     @Override
     public void sendMessage(Message message) {
         sendMessage(Optional.empty(), message);
     }
 
+    /**
+     * Send a message to the PubSub topic with a key
+     * @param key - Key
+     * @param message - Message
+     */
     @Override
     public void sendMessage(String key, Message message) {
         sendMessage(Optional.of(key), message);
     }
 
+    /**
+     * Send a message to the PubSub topic
+     * @param key (Optional) - Key
+     * @param message - Message
+     */
     private void sendMessage(Optional<String> key, Message message) {
         try{
             PubsubMessage.Builder pubSubMsgBuilder = PubsubMessage
@@ -68,6 +89,9 @@ public class PubSubProducerSystem extends Producer {
         }
     }
 
+    /**
+     * Close the producer
+     */
     @Override
     public void close() {
         this.publisher.shutdown();

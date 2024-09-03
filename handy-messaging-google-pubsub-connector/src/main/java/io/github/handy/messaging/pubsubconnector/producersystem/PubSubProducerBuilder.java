@@ -39,34 +39,57 @@ import io.grpc.ManagedChannelBuilder;
 
 import java.util.Map;
 
+/**
+ * Builder class for PubSub Producer
+ */
 public class PubSubProducerBuilder implements ProducerBuilder {
 
     private Map<String, Object> producerProps;
     private String topic;
     private String projectId;
-
     private boolean emulatorFlag = false;
-
     private Publisher publisher;
+
+    /**
+     * Set the producer properties
+     * @param props - Producer properties Map
+     * @return - ProducerBuilder
+     */
     @Override
     public ProducerBuilder setProducerProperties(Map<String, Object> props) {
         this.producerProps = props;
         return this;
     }
 
+    /**
+     * Get the queue name
+     * @return - Queue name
+     */
     @Override
     public String getQueueName() {
         return this.topic;
     }
 
+    /**
+     * Get the project id
+     * @return - String representing the project id
+     */
     public String getProjectId() {
         return projectId;
     }
 
+    /**
+     * Get the publisher
+     * @return - Publisher
+     */
     public Publisher getPublisher() {
         return publisher;
     }
 
+    /**
+     * Build the producer
+     * @return - Producer
+     */
     @Override
     public Producer build() {
         try {
