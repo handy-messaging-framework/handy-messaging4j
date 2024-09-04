@@ -9,17 +9,21 @@ Asynchronous messaging is one of the fundamental pillars of any distributed syst
 #### Importing the core module
 The core module needs to be imported for HMF4J to work. 
 ```xml
-<groupId>io.github.handy-messaging-framework</groupId>
-<artifactId>hmf4j-core</artifactId>
-<version>1.0.0</version>
+<dependency>
+    <groupId>io.github.handy-messaging-framework</groupId>
+    <artifactId>hmf4j-core</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 
 #### Importing connector module(s)
 Any connector module can be imported based on need. For example if interfacing to a kafka system import the Kafka connector as below:
 ```xml
-<groupId>io.github.handy-messaging-framework</groupId>
-<artifactId>hmf4j-kafka-connector</artifactId>
-<version>1.0.0</version>
+<dependency>
+    <groupId>io.github.handy-messaging-framework</groupId>
+    <artifactId>hmf4j-kafka-connector</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 
 #### Importing TestKit
@@ -27,31 +31,39 @@ Any connector module can be imported based on need. For example if interfacing t
 *Importing Photon Messaging System and its connector*
 
 ```xml
-<groupId>io.github.handy-messaging-framework</groupId>
-<artifactId>hmf4j-photon-mq</artifactId>
-<version>1.0.0</version>
+<dependency>
+    <groupId>io.github.handy-messaging-framework</groupId>
+    <artifactId>hmf4j-photon-mq</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 
 ```xml
-<groupId>io.github.handy-messaging-framework</groupId>
-<artifactId>hmf4j-photon-connector</artifactId>
-<version>1.0.0</version>
+<dependency>
+    <groupId>io.github.handy-messaging-framework</groupId>
+    <artifactId>hmf4j-photon-connector</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 
 *Importing Test Toolkit*
 
 ```xml
-<groupId>io.github.handy-messaging-framework</groupId>
-<artifactId>hmf4j-test-toolkit</artifactId>
-<version>1.0.0</version>
+<dependency>
+    <groupId>io.github.handy-messaging-framework</groupId>
+    <artifactId>hmf4j-test-toolkit</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 
 #### Importing the SimpleMessage Type
 
 ```xml
-<groupId>io.github.handy-messaging-framework</groupId>
-<artifactId>hmf4j-types-simplemessage</artifactId>
-<version>1.0.0</version>
+<dependency>
+    <groupId>io.github.handy-messaging-framework</groupId>
+    <artifactId>hmf4j-types-simplemessage</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 
 ## Compiling and installing the source
