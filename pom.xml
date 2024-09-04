@@ -40,6 +40,8 @@
         </developer>
     </developers>
 
+    <url>https://handy-messaging-framework.github.io/handy-messaging4j-docs/</url>
+
     <scm>
         <url>https://github.com/handy-messaging-framework/handy-messaging4j</url>
     </scm>
