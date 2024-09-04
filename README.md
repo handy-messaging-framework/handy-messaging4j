@@ -80,5 +80,4 @@ For any inquiries, please contact Aron Sajan Philip at [arondeveloper@yahoo.com]
 
 ## Additional Information
 
-For additional details, visit [project website]() or [Javadocs]()
-
+For additional details, visit [project website](https://handy-messaging-framework.github.io/handy-messaging4j-docs/) or [Javadocs](https://javadoc.io/doc/io.github.handy-messaging-framework)
