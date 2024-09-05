@@ -31,9 +31,9 @@ import io.github.handy.messaging.types.simplemessage.SimpleMessage;
 import org.eclipse.paho.client.mqttv3.*;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.testcontainers.hivemq.HiveMQContainer;
-import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.utility.DockerImageName;
 import java.time.Instant;
 import java.util.*;
@@ -42,10 +42,9 @@ import java.util.concurrent.FutureTask;
 
 public class MqttProducerSystemTest {
 
-    @Container
-    HiveMQContainer hiveMQContainer;
-
-    MqttProducerSystem producer;
+    
+    private static HiveMQContainer hiveMQContainer;
+    private MqttProducerSystem producer;
 
     private  Map<String, Object> generateConsumerProperties(){
         return new HashMap<String, Object>(){{
@@ -57,10 +56,14 @@ public class MqttProducerSystemTest {
         }};
     }
 
+    @BeforeClass
+    public static void setup(){
+        hiveMQContainer = new HiveMQContainer(DockerImageName.parse("hivemq/hivemq-ce:2021.3"));
+        hiveMQContainer.start();
+    }
+
     @Before
-    public void setup(){
-        this.hiveMQContainer = new HiveMQContainer(DockerImageName.parse("hivemq/hivemq-ce:latest"));
-        this.hiveMQContainer.start();
+    public void setupTest(){
         MqttProducerBuilder producerBuilder = new MqttProducerBuilder();
         producerBuilder.setProducerProperties(this.generateConsumerProperties());
         this.producer = new MqttProducerSystem(producerBuilder);
