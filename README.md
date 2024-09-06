@@ -1,6 +1,6 @@
 
-[![CI Build](https://github.com/handy-messaging-framework/handy-messaging4j/actions/workflows/maven.yml/badge.svg)](https://github.com/handy-messaging-framework/handy-messaging4j/actions/workflows/maven.yml)
-[![codecov](https://codecov.io/gh/{{REPOSITORY}}/branch/main/graph/badge.svg)](https://codecov.io/gh/{{REPOSITORY}})
+[![CI Build](https://github.com/handy-messaging-framework/handy-messaging4j/actions/workflows/maven.yml/badge.svg?branch=develop)](https://github.com/handy-messaging-framework/handy-messaging4j/actions/workflows/maven.yml)
+[![codecov](https://codecov.io/gh/{{REPOSITORY}}/branch/main/graph/badge.svg?branch=develop)](https://codecov.io/gh/{{REPOSITORY}})
 
 
 # Handy-Messaging4J
