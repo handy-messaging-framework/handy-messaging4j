@@ -6,7 +6,7 @@
     <parent>
         <groupId>io.github.handy-messaging-framework</groupId>
         <artifactId>hmf4j</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.0.1</version>
     </parent>
     <name>Handy-Messaging-Framework4J MQTT Connector</name>
     <description>MQTT Connector for Handy-Messaging-Framework4j</description>
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-interface</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -70,7 +70,7 @@
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-types-simplemessage</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

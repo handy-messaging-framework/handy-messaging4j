@@ -7,7 +7,7 @@
     <groupId>io.github.handy-messaging-framework</groupId>
     <artifactId>hmf4j</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <description>A library abstracting various messaging systems. Allows a producer and consumer to interact in an
         asynchronous messaging system
     </description>

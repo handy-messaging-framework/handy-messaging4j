@@ -6,7 +6,7 @@
     <parent>
         <groupId>io.github.handy-messaging-framework</groupId>
         <artifactId>hmf4j</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.0.1</version>
     </parent>
     <artifactId>hmf4j-photon-connector</artifactId>
     <name>Handy-Messaging-Framework4J Photon Connector</name>
@@ -42,7 +42,7 @@
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-interface</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -52,7 +52,7 @@
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-photon-mq</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.typesafe.akka</groupId>
@@ -63,7 +63,7 @@
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-types-simplemessage</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
