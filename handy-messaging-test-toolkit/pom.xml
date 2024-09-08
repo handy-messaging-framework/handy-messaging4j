@@ -6,7 +6,7 @@
     <parent>
         <groupId>io.github.handy-messaging-framework</groupId>
         <artifactId>hmf4j</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>hmf4j-test-toolkit</artifactId>
     <name>Handy-Messaging-Framework4J Test Toolkit</name>
@@ -41,7 +41,7 @@
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-core</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
@@ -69,13 +69,13 @@
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-types-simplemessage</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.1-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-photon-connector</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.1-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>

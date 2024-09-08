@@ -37,9 +37,10 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.slf4j.event.Level;
 import org.testcontainers.hivemq.HiveMQContainer;
-import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.utility.DockerImageName;
 import java.time.Instant;
 import java.util.*;
@@ -49,9 +50,8 @@ public class MqttConsumerSystemTest {
     MqttConsumerBuilder consumerBuilder;
 
     MqttConsumerSystem consumerSystem;
-
-    @Container
-    HiveMQContainer hiveMQContainer;
+    
+    static HiveMQContainer hiveMQContainer;
 
     static ActorSystem system = ActorSystem.create();
 
@@ -73,14 +73,17 @@ public class MqttConsumerSystemTest {
             put("max.messages.per.batch", 1);
         }};
     }
+    @BeforeClass
+    public static void setup(){
+        hiveMQContainer = new HiveMQContainer(DockerImageName.parse("hivemq/hivemq-ce:2021.3"));
+        hiveMQContainer.start();
+    }
+
     @Before
-    public void setup(){
-        this.hiveMQContainer = new HiveMQContainer(DockerImageName.parse("hivemq/hivemq-ce:latest"));
-        this.hiveMQContainer.start();
+    public void setupTest(){
         this.consumerBuilder = new MqttConsumerBuilder();
         this.consumerBuilder.setConsumerProperties(getConsumerProperties());
         this.consumerSystem = new MqttConsumerSystem(this.consumerBuilder);
-
     }
 
     @Test
