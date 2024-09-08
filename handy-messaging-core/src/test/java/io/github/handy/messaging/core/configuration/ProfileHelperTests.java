@@ -39,8 +39,8 @@ public class ProfileHelperTests {
 
     @Test
     public void verifyGetProfile(){
-        Profile photonMessagingProfile = ProfileHelper.getProfile("profile3");
-        Assert.assertEquals(photonMessagingProfile.getProfileName(), "profile3");
-        Assert.assertEquals(photonMessagingProfile.getSystem(), "photon-mq");
+        Profile memcellMessagingProfile = ProfileHelper.getProfile("profile3");
+        Assert.assertEquals(memcellMessagingProfile.getProfileName(), "profile3");
+        Assert.assertEquals(memcellMessagingProfile.getSystem(), "memcell-mq");
     }
 }

@@ -56,7 +56,7 @@ public class ProducerBuilderMap {
     private void initializeBuilderMap(){
         this.builderMap.put("kafka", "io.github.handy.messaging.kafkaconnector.producersystem.KafkaProducerBuilder");
         this.builderMap.put("google-pubsub", "io.github.handy.messaging.pubsubconnector.producersystem.PubSubProducerBuilder");
-        this.builderMap.put("photon-mq", "io.github.handy.messaging.photonconnector.producersystem.PhotonProducerBuilder");
+        this.builderMap.put("memcell-mq", "io.github.handy.messaging.memcellconnector.producersystem.MemcellMessagingProducerBuilder");
         this.builderMap.put("mqtt", "io.github.handy.messaging.mqttconnector.producersystem.MqttProducerBuilder");
     }
 

@@ -33,12 +33,12 @@ Any connector module can be imported based on need. For example if interfacing t
 
 #### Importing TestKit
 
-*Importing Photon Messaging System and its connector*
+*Importing Memcell Messaging System and its connector*
 
 ```xml
 <dependency>
     <groupId>io.github.handy-messaging-framework</groupId>
-    <artifactId>hmf4j-photon-mq</artifactId>
+    <artifactId>hmf4j-memcell-messagingsystem</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
@@ -46,7 +46,7 @@ Any connector module can be imported based on need. For example if interfacing t
 ```xml
 <dependency>
     <groupId>io.github.handy-messaging-framework</groupId>
-    <artifactId>hmf4j-photon-connector</artifactId>
+    <artifactId>hmf4j-memcell-connector</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```

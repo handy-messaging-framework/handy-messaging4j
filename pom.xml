@@ -20,7 +20,7 @@
         <module>handy-messaging-types-simplemessage</module>
         <module>handy-messaging-test-toolkit</module>
         <module>handy-messaging-memcell-messagingsystem</module>
-        <module>handy-messaging-photon-connector</module>
+        <module>handy-messaging-memcell-connector</module>
         <module>handy-messaging-mqtt-connector</module>
     </modules>
 

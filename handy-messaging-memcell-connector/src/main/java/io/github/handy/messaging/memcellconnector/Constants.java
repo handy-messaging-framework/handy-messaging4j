@@ -22,18 +22,15 @@
  * SOFTWARE.
  */
 
-package io.github.handy.messaging.test.toolkit;
+package io.github.handy.messaging.memcellconnector;
 
 /**
- * Class that contains all the constants used in the toolkit
+ * Constants class for Memcell Messaging Connector
  */
 public class Constants {
-    public static final String MEMCELL_MESSAGE_SYSTEM = "memcell-mq";
-    public static final String MEMCELL_MESSAGING_INSTANCE = "memcell.messaging.instance";
-
-    public static final String MEMCELL_APPLICATION_ID = "application.id";
-
-    public static final String CONSUMER_MAX_BATCH_MESSAGES = "max.messages.per.batch";
-
-    public static final String CONSUMER_MAX_POLL_DURATION = "max.poll.duration.millis";
+    public static final String MESSAGE_SERVICE = "memcell.messaging.instance";
+    public static final String QUEUE_NAME = "queue.name";
+    public static final String MESSAGE_TYPE_CLASS = "message.type.class";
+    public static final String CONSUMER_ACTOR = "consumer.actor";
+    public static final String APPLICATION_ID = "application.id";
 }

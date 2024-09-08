@@ -22,18 +22,34 @@
  * SOFTWARE.
  */
 
-package io.github.handy.messaging.test.toolkit;
+package io.github.handy.messaging.memcellconnector.producersystem;
 
-/**
- * Class that contains all the constants used in the toolkit
- */
-public class Constants {
-    public static final String MEMCELL_MESSAGE_SYSTEM = "memcell-mq";
-    public static final String MEMCELL_MESSAGING_INSTANCE = "memcell.messaging.instance";
+import io.github.handy.messaging.memcellconnector.Constants;
+import org.junit.Assert;
+import org.junit.Test;
+import java.util.HashMap;
+import java.util.Map;
 
-    public static final String MEMCELL_APPLICATION_ID = "application.id";
+public class MemcellMessagingProducerBuilderTest {
 
-    public static final String CONSUMER_MAX_BATCH_MESSAGES = "max.messages.per.batch";
+    private Map<String, Object> getProducerProperties(){
+        return new HashMap<>(){{
+            put(Constants.QUEUE_NAME, "test_queue");
+            put(Constants.MESSAGE_SERVICE, "test_service");
+        }};
+    }
 
-    public static final String CONSUMER_MAX_POLL_DURATION = "max.poll.duration.millis";
+    @Test
+    public void buildMemcellMessagingProducerInstanceTest(){
+        MemcellMessagingProducerBuilder producerBuilder = new MemcellMessagingProducerBuilder();
+        producerBuilder.setProducerProperties(getProducerProperties());
+        Assert.assertEquals(producerBuilder.build().getClass(), MemcellMessagingProducerSystem.class);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void buildMemcellMessagingProducerInstanceWithoutRequiredParamsTest(){
+        MemcellMessagingProducerBuilder producerBuilder = new MemcellMessagingProducerBuilder();
+        Assert.assertNull(producerBuilder.build());
+    }
+
 }

@@ -8,9 +8,9 @@
         <artifactId>hmf4j</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>hmf4j-test-toolkit</artifactId>
-    <name>Handy-Messaging-Framework4J Test Toolkit</name>
-    <description>Test Toolkit for Handy-Messaging-Framework4j</description>
+    <artifactId>hmf4j-memcell-connector</artifactId>
+    <name>Handy-Messaging-Framework4J Memcell Connector</name>
+    <description>Memcell Messaging connector for Handy-Messaging-Framework4j</description>
 
     <licenses>
         <license>
@@ -35,13 +35,19 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
-            <artifactId>hmf4j-core</artifactId>
+            <artifactId>hmf4j-interface</artifactId>
             <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.9</version>
         </dependency>
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
@@ -49,39 +55,15 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>5.10.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-inline</artifactId>
-            <version>5.2.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-junit-jupiter</artifactId>
-            <version>5.10.0</version>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-testkit_2.13</artifactId>
+            <version>2.6.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-types-simplemessage</artifactId>
             <version>1.0.1-SNAPSHOT</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.github.handy-messaging-framework</groupId>
-            <artifactId>hmf4j-memcell-connector</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-testkit_2.13</artifactId>
-            <version>2.6.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

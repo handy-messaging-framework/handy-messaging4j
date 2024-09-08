@@ -47,14 +47,14 @@ public class HandyMessagingTestLab {
 
     Map<String, Map<String, ActorRef>> messageRetentionActorRegistry;
 
-    MemcellMessagingAdministrator photonAdmin;
+    MemcellMessagingAdministrator memcelladmin;
 
     ActorSystem testSystem;
 
     private HandyMessagingTestLab(HandyMessagingTestLabBuilder builder){
         this.messageRetentionActorRegistry = builder.messageRetentionActorRegistry;
         this.testSystem = builder.handyMessagingTestSystem;
-        this.photonAdmin = builder.photonAdmin;
+        this.memcelladmin = builder.memcellAdmin;
     }
 
     /**
@@ -76,7 +76,7 @@ public class HandyMessagingTestLab {
 
        Logger LOGGER = LoggerFactory.getLogger(HandyMessagingTestLabBuilder.class);
         private List<AnalysisQueueInfo> analysisQueues;
-        private MemcellMessagingAdministrator photonAdmin;
+        private MemcellMessagingAdministrator memcellAdmin;
 
        private ActorSystem handyMessagingTestSystem;
 
@@ -88,7 +88,7 @@ public class HandyMessagingTestLab {
            this.analysisQueues = new ArrayList<>();
            this.profileMap = new HashMap<>();
            this.handyMessagingTestSystem = ActorSystem.create("HandyMessagingTestAssist");
-           this.photonAdmin = new MemcellMessagingAdministrator();
+           this.memcellAdmin = new MemcellMessagingAdministrator();
            this.messageRetentionActorRegistry = new HashMap<>();
        }
 
@@ -113,23 +113,23 @@ public class HandyMessagingTestLab {
 
 
        private void registerQueue(String messagingInstance, String queueName){
-           if(!this.photonAdmin.registerMessagingQueue(queueName, messagingInstance).getCommandExecutionStatus().equals(CommandExecutionStatus.SUCCESS)){
+           if(!this.memcellAdmin.registerMessagingQueue(queueName, messagingInstance).getCommandExecutionStatus().equals(CommandExecutionStatus.SUCCESS)){
                throw new RuntimeException(String.format("Registering queue % failed for messaging service %s", queueName, messagingInstance));
            }
        }
 
        private List<String> getMessagingInstances(){
            return this.profileMap.values().stream().map(profile -> {
-               return profile.getProducerProperties().getProps().get(Constants.PHOTON_MESSAGING_INSTANCE).toString();
+               return profile.getProducerProperties().getProps().get(Constants.MEMCELL_MESSAGING_INSTANCE).toString();
            }).collect(Collectors.toList());
        }
 
        private void registerMessagingQueues(){
            this.analysisQueues.forEach(analysisQueueInfo -> {
                Profile profile = this.profileMap.get(analysisQueueInfo.getProfileName());
-               String messagingInstance = profile.getProducerProperties().getProps().get(Constants.PHOTON_MESSAGING_INSTANCE).toString();
+               String messagingInstance = profile.getProducerProperties().getProps().get(Constants.MEMCELL_MESSAGING_INSTANCE).toString();
                String queue = analysisQueueInfo.getQueueName();
-               this.photonAdmin.registerMessagingQueue(queue, messagingInstance);
+               this.memcellAdmin.registerMessagingQueue(queue, messagingInstance);
            });
        }
 
@@ -138,14 +138,14 @@ public class HandyMessagingTestLab {
            messageAnalysisConsumerProps.setProps(new HashMap<>(){{
                put(Constants.CONSUMER_MAX_BATCH_MESSAGES, 1);
                put(Constants.CONSUMER_MAX_POLL_DURATION, 1000);
-               put(Constants.PHOTON_APPLICATION_ID, String.format("TESTCONSUMER-%s", fromProfile.getProfileName()));
-               put(Constants.PHOTON_MESSAGING_INSTANCE,  fromProfile.getProducerProperties().getProps().get(Constants.PHOTON_MESSAGING_INSTANCE).toString());
+               put(Constants.MEMCELL_APPLICATION_ID, String.format("TESTCONSUMER-%s", fromProfile.getProfileName()));
+               put(Constants.MEMCELL_MESSAGING_INSTANCE,  fromProfile.getProducerProperties().getProps().get(Constants.MEMCELL_MESSAGING_INSTANCE).toString());
            }
            });
 
            return new Profile.ProfileBuilder()
                    .setProfileName(String.format("TEST-%s", fromProfile.getProfileName()))
-                   .setSystem(Constants.PHOTON_SYSTEM)
+                   .setSystem(Constants.MEMCELL_MESSAGE_SYSTEM)
                    .setConsumerProperties(messageAnalysisConsumerProps).buildProfile();
        }
 
@@ -159,13 +159,13 @@ public class HandyMessagingTestLab {
            new ConfigurationBootstrap();
            this.buildProfileMap();
            this.profileMap.values().forEach(profile -> {
-               if(!profile.getSystem().equals(Constants.PHOTON_SYSTEM)){
-                   throw new RuntimeException(String.format("Profile %s is not using a photon messaging service", profile.getProfileName()));
+               if(!profile.getSystem().equals(Constants.MEMCELL_MESSAGE_SYSTEM)){
+                   throw new RuntimeException(String.format("Profile %s is not using a memcell messaging service", profile.getProfileName()));
                }
            });
 
            getMessagingInstances().forEach(messagingInstance -> {
-               this.photonAdmin.registerMessagingService(messagingInstance);
+               this.memcellAdmin.registerMessagingService(messagingInstance);
            });
 
            this.registerMessagingQueues();

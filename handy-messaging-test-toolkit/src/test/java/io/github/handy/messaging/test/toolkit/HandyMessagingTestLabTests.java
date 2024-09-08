@@ -39,7 +39,7 @@ public class HandyMessagingTestLabTests {
     public static void setup() {
 
         HandyMessagingTestLab.HandyMessagingTestLabBuilder labBuilder = new HandyMessagingTestLab.HandyMessagingTestLabBuilder()
-                .addListener("photonTestProfile",
+                .addListener("memcellMessagingTestProfile",
                         "testqueue",
                         "io.github.handy.messaging.types.simplemessage.SimpleMessage");
 
@@ -56,7 +56,7 @@ public class HandyMessagingTestLabTests {
 
     @Test
     public void getAnalysisProbeReturnsNonNullProbe() {
-        MessageProbe probe = testLab.getAnalysisProbe(200, "photonTestProfile", "testqueue");
+        MessageProbe probe = testLab.getAnalysisProbe(200, "memcellMessagingTestProfile", "testqueue");
         assertNotNull(probe);
     }
 
@@ -68,7 +68,7 @@ public class HandyMessagingTestLabTests {
 
     @Test(expected = RuntimeException.class)
     public void getAnalysisProbeReturnsNullWhenQueueDoesNotExist() {
-        MessageProbe probe = testLab.getAnalysisProbe(1000, "photonTestProfile", "nonexistentQueue");
+        MessageProbe probe = testLab.getAnalysisProbe(1000, "memcellMessagingTestProfile", "nonexistentQueue");
         assertNull(probe);
     }
 }
