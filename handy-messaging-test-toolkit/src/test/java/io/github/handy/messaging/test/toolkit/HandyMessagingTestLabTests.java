@@ -24,7 +24,7 @@
 
 package io.github.handy.messaging.test.toolkit;
 
-import io.github.handy.messaging.photon.clients.PhotonMessagingAdministrator;
+import io.github.handy.messaging.memcell.clients.MemcellMessagingAdministrator;
 import org.junit.*;
 import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -49,7 +49,7 @@ public class HandyMessagingTestLabTests {
 
     @AfterClass
     public static void tearDown() {
-        PhotonMessagingAdministrator administrator = new PhotonMessagingAdministrator();
+        MemcellMessagingAdministrator administrator = new MemcellMessagingAdministrator();
         administrator.tearDownMessagingService("validation_instance");
     }
 

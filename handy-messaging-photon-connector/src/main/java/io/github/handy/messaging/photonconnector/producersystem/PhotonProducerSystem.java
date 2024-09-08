@@ -26,9 +26,9 @@ package io.github.handy.messaging.photonconnector.producersystem;
 
 import io.github.handy.messaging.interfaces.Message;
 import io.github.handy.messaging.interfaces.Producer;
-import io.github.handy.messaging.photon.clients.PhotonProducer;
-import io.github.handy.messaging.photon.types.responses.CommandExecutionStatus;
-import io.github.handy.messaging.photon.types.responses.CommandResponse;
+import io.github.handy.messaging.memcell.clients.MemcellMessagingProducer;
+import io.github.handy.messaging.memcell.types.responses.CommandExecutionStatus;
+import io.github.handy.messaging.memcell.types.responses.CommandResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
 public class PhotonProducerSystem extends Producer {
 
     private String messagingServiceInstance;
-    private PhotonProducer producer;
+    private MemcellMessagingProducer producer;
     private Logger LOGGER = LoggerFactory.getLogger(PhotonProducerSystem.class);
 
     /**
@@ -49,7 +49,7 @@ public class PhotonProducerSystem extends Producer {
     public PhotonProducerSystem(PhotonProducerBuilder producerBuilder){
         super(producerBuilder);
         this.messagingServiceInstance = producerBuilder.getPhotonMessagingInstance();
-        this.producer = new PhotonProducer(this.messagingServiceInstance);
+        this.producer = new MemcellMessagingProducer(this.messagingServiceInstance);
         LOGGER.info("Photon Producer System initialized");
     }
 

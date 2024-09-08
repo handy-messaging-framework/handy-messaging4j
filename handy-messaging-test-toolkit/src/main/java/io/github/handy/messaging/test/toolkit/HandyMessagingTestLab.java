@@ -31,8 +31,8 @@ import io.github.handy.messaging.core.configuration.ConsumerProperties;
 import io.github.handy.messaging.core.configuration.Profile;
 import io.github.handy.messaging.core.configuration.ProfileHelper;
 import io.github.handy.messaging.core.consumer.MessageConsumingSystem;
-import io.github.handy.messaging.photon.clients.PhotonMessagingAdministrator;
-import io.github.handy.messaging.photon.types.responses.CommandExecutionStatus;
+import io.github.handy.messaging.memcell.clients.MemcellMessagingAdministrator;
+import io.github.handy.messaging.memcell.types.responses.CommandExecutionStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,7 +47,7 @@ public class HandyMessagingTestLab {
 
     Map<String, Map<String, ActorRef>> messageRetentionActorRegistry;
 
-    PhotonMessagingAdministrator photonAdmin;
+    MemcellMessagingAdministrator photonAdmin;
 
     ActorSystem testSystem;
 
@@ -76,7 +76,7 @@ public class HandyMessagingTestLab {
 
        Logger LOGGER = LoggerFactory.getLogger(HandyMessagingTestLabBuilder.class);
         private List<AnalysisQueueInfo> analysisQueues;
-        private PhotonMessagingAdministrator photonAdmin;
+        private MemcellMessagingAdministrator photonAdmin;
 
        private ActorSystem handyMessagingTestSystem;
 
@@ -88,7 +88,7 @@ public class HandyMessagingTestLab {
            this.analysisQueues = new ArrayList<>();
            this.profileMap = new HashMap<>();
            this.handyMessagingTestSystem = ActorSystem.create("HandyMessagingTestAssist");
-           this.photonAdmin = new PhotonMessagingAdministrator();
+           this.photonAdmin = new MemcellMessagingAdministrator();
            this.messageRetentionActorRegistry = new HashMap<>();
        }
 

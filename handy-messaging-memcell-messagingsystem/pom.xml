@@ -8,9 +8,9 @@
         <artifactId>hmf4j</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <artifactId>hmf4j-photon-connector</artifactId>
-    <name>Handy-Messaging-Framework4J Photon Connector</name>
-    <description>Photon connector for Handy-Messaging-Framework4j</description>
+    <artifactId>hmf4j-memcell-messagingsystem</artifactId>
+    <name>Handy-Messaging-Framework4J Memcell Messaging System</name>
+    <description>Memcell Messaging System is an in-memory messaging system for Handy-Messaging-Framework4j</description>
 
     <licenses>
         <license>
@@ -40,9 +40,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.github.handy-messaging-framework</groupId>
-            <artifactId>hmf4j-interface</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor_2.13</artifactId>
+            <version>2.6.0</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -51,14 +51,9 @@
         </dependency>
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
-            <artifactId>hmf4j-memcell-messagingsystem</artifactId>
+            <artifactId>hmf4j-interface</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-testkit_2.13</artifactId>
-            <version>2.6.0</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>

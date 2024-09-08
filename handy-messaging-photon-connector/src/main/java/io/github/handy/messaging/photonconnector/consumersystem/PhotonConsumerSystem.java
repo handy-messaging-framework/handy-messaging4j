@@ -26,7 +26,7 @@ package io.github.handy.messaging.photonconnector.consumersystem;
 
 import io.github.handy.messaging.interfaces.Consumer;
 import io.github.handy.messaging.interfaces.Message;
-import io.github.handy.messaging.photon.clients.PhotonConsumer;
+import io.github.handy.messaging.memcell.clients.MemcellMessagingConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.List;
@@ -41,7 +41,7 @@ import java.util.concurrent.Future;
 public class PhotonConsumerSystem extends Consumer {
 
     private ExecutorService pollThreadManager;
-    private PhotonConsumer consumer;
+    private MemcellMessagingConsumer consumer;
     private Future pollHandle;
     private boolean interruptedFlag;
     private String consumerId, messageType;
@@ -58,7 +58,7 @@ public class PhotonConsumerSystem extends Consumer {
         try {
             this.consumerId = String.format("consumer_%s_%s", consumerBuilder.getApplicationId(),
                     consumerBuilder.getQueueName());
-            this.consumer = new PhotonConsumer(consumerBuilder.getPhotonMessagingInstance(),
+            this.consumer = new MemcellMessagingConsumer(consumerBuilder.getPhotonMessagingInstance(),
                     consumerBuilder.getQueueName(),
                     consumerId,
                     Class.forName(this.getMessageTypeClass()));
