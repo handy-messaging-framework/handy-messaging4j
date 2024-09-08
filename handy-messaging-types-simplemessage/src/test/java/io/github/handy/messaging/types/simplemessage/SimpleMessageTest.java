@@ -33,7 +33,7 @@ import java.util.Optional;
 
 public class SimpleMessageTest {
 
-    private static String EXPECTED_SERIALIZED_BASE64 = "CgUxLjAuMBJAaW8uZ2l0aHViLmhhbmR5Lm1lc3NhZ2luZy50eXBlcy5zaW1wbGVtZXNzYWdlLlNpbXBsZU1lc3NhZ2VQcm90bxoWY2xhc3MgamF2YS5sYW5nLlN0cmluZyIFYXBwLTEqBW1zZy0xMgx0cmFuc2FjdGlvbjE40KPf0JkyQh9IZWxsbywgdGhpcyBpcyBhIHNhbXBsZSBtZXNzYWdl";
+    private static String EXPECTED_SERIALIZED_BASE64 = "CgUxLjEuMBJAaW8uZ2l0aHViLmhhbmR5Lm1lc3NhZ2luZy50eXBlcy5zaW1wbGVtZXNzYWdlLlNpbXBsZU1lc3NhZ2VQcm90bxoWY2xhc3MgamF2YS5sYW5nLlN0cmluZyIFYXBwLTEqBW1zZy0xMgx0cmFuc2FjdGlvbjE40KPf0JkyQh9IZWxsbywgdGhpcyBpcyBhIHNhbXBsZSBtZXNzYWdl";
     @Test
     public void serializationTest(){
         SimpleMessage msg = getMessage();

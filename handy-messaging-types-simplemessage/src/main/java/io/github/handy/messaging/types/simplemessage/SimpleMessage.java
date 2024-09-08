@@ -39,7 +39,7 @@ import java.util.Optional;
 public class SimpleMessage implements Message {
 
     private final String HEADER_SCHEMA = "io.github.handy.messaging.types.simplemessage.SimpleMessageProto";
-    private final String VERSION = "1.0.0";
+    private final String VERSION = "1.1.0";
 
     private SimpleMessageType.SimpleProtoMessage.Builder protoBuilder;
 
