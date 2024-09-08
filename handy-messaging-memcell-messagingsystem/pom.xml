@@ -6,7 +6,7 @@
     <parent>
         <groupId>io.github.handy-messaging-framework</groupId>
         <artifactId>hmf4j</artifactId>
-        <version>1.1.0-SNAPSHOT</version>
+        <version>1.1.0</version>
     </parent>
     <artifactId>hmf4j-memcell-messagingsystem</artifactId>
     <name>Handy-Messaging-Framework4J Memcell Messaging System</name>
@@ -52,13 +52,13 @@
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-interface</artifactId>
-            <version>1.1.0-SNAPSHOT</version>
+            <version>1.1.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-types-simplemessage</artifactId>
-            <version>1.1.0-SNAPSHOT</version>
+            <version>1.1.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
