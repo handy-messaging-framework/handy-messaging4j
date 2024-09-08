@@ -1,13 +1,13 @@
 hmf4j:
   profiles:
-    - profileName: photonTestProfile
-      system: photon-mq
+    - profileName: memcellMessagingTestProfile
+      system: memcell-mq
       consumer:
         properties:
           application.id: "validation_tool"
-          photon.messaging.instance: "validation_instance"
+          memcell.messaging.instance: "validation_instance"
           max.messages.per.batch: 3
           max.poll.duration.millis: 15000
       producer:
         properties:
-          photon.messaging.instance: "validation_instance"
+          memcell.messaging.instance: "validation_instance"

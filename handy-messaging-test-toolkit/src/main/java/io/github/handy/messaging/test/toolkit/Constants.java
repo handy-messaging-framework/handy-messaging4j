@@ -28,10 +28,10 @@ package io.github.handy.messaging.test.toolkit;
  * Class that contains all the constants used in the toolkit
  */
 public class Constants {
-    public static final String PHOTON_SYSTEM = "photon-mq";
-    public static final String PHOTON_MESSAGING_INSTANCE = "photon.messaging.instance";
+    public static final String MEMCELL_MESSAGE_SYSTEM = "memcell-mq";
+    public static final String MEMCELL_MESSAGING_INSTANCE = "memcell.messaging.instance";
 
-    public static final String PHOTON_APPLICATION_ID = "application.id";
+    public static final String MEMCELL_APPLICATION_ID = "application.id";
 
     public static final String CONSUMER_MAX_BATCH_MESSAGES = "max.messages.per.batch";
 

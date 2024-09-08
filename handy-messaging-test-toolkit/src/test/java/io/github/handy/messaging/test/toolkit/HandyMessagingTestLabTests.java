@@ -24,7 +24,7 @@
 
 package io.github.handy.messaging.test.toolkit;
 
-import io.github.handy.messaging.photon.clients.PhotonMessagingAdministrator;
+import io.github.handy.messaging.memcell.clients.MemcellMessagingAdministrator;
 import org.junit.*;
 import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -39,7 +39,7 @@ public class HandyMessagingTestLabTests {
     public static void setup() {
 
         HandyMessagingTestLab.HandyMessagingTestLabBuilder labBuilder = new HandyMessagingTestLab.HandyMessagingTestLabBuilder()
-                .addListener("photonTestProfile",
+                .addListener("memcellMessagingTestProfile",
                         "testqueue",
                         "io.github.handy.messaging.types.simplemessage.SimpleMessage");
 
@@ -49,14 +49,14 @@ public class HandyMessagingTestLabTests {
 
     @AfterClass
     public static void tearDown() {
-        PhotonMessagingAdministrator administrator = new PhotonMessagingAdministrator();
+        MemcellMessagingAdministrator administrator = new MemcellMessagingAdministrator();
         administrator.tearDownMessagingService("validation_instance");
     }
 
 
     @Test
     public void getAnalysisProbeReturnsNonNullProbe() {
-        MessageProbe probe = testLab.getAnalysisProbe(200, "photonTestProfile", "testqueue");
+        MessageProbe probe = testLab.getAnalysisProbe(200, "memcellMessagingTestProfile", "testqueue");
         assertNotNull(probe);
     }
 
@@ -68,7 +68,7 @@ public class HandyMessagingTestLabTests {
 
     @Test(expected = RuntimeException.class)
     public void getAnalysisProbeReturnsNullWhenQueueDoesNotExist() {
-        MessageProbe probe = testLab.getAnalysisProbe(1000, "photonTestProfile", "nonexistentQueue");
+        MessageProbe probe = testLab.getAnalysisProbe(1000, "memcellMessagingTestProfile", "nonexistentQueue");
         assertNull(probe);
     }
 }

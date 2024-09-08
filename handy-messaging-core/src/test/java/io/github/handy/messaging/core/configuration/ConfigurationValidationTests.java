@@ -55,11 +55,11 @@ public class ConfigurationValidationTests {
     }
 
     @Test
-    public void verifyPhotonMessagingProfile(){
-        Profile photonMessagingProfile = ProfileHelper.getProfile("profile3");
-        Assert.assertEquals("photon-mq", photonMessagingProfile.getSystem());
-        Assert.assertEquals("validation_instance", photonMessagingProfile.getProducerProperties()
-                .getProps().get("photon.messaging.instance"));
-        Assert.assertEquals("validation_tool", photonMessagingProfile.getConsumerProperties().getProps().get("application.id"));
+    public void verifyMemcellMessagingProfile(){
+        Profile memcellMessagingProfile = ProfileHelper.getProfile("profile3");
+        Assert.assertEquals("memcell-mq", memcellMessagingProfile.getSystem());
+        Assert.assertEquals("validation_instance", memcellMessagingProfile.getProducerProperties()
+                .getProps().get("memcell.messaging.instance"));
+        Assert.assertEquals("validation_tool", memcellMessagingProfile.getConsumerProperties().getProps().get("application.id"));
     }
 }

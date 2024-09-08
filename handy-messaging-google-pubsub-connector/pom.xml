@@ -6,7 +6,7 @@
     <parent>
         <groupId>io.github.handy-messaging-framework</groupId>
         <artifactId>hmf4j</artifactId>
-        <version>1.0.1</version>
+        <version>1.1.0</version>
     </parent>
 
     <artifactId>hmf4j-google-pubsub-connector</artifactId>
@@ -24,7 +24,7 @@
         <developer>
             <name>Aron Sajan Philip</name>
             <email>arondeveloper@yahoo.com</email>
-            <organization>com.github.aronsajan</organization>
+            <organization>Handy-Messaging-Framework</organization>
             <url>https://aronsajan.github.io/</url>
         </developer>
     </developers>
@@ -53,7 +53,7 @@
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-interface</artifactId>
-            <version>1.0.1</version>
+            <version>1.1.0</version>
         </dependency>
         <dependency>
             <groupId>com.google.cloud</groupId>
@@ -85,7 +85,7 @@
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-types-simplemessage</artifactId>
-            <version>1.0.1</version>
+            <version>1.1.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

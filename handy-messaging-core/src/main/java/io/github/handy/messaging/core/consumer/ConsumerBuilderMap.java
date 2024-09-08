@@ -56,7 +56,7 @@ public class ConsumerBuilderMap {
     private void initializeBuilderMap(){
         this.builderMap.put("kafka", "io.github.handy.messaging.kafkaconnector.consumersystem.KafkaConsumerBuilder");
         this.builderMap.put("google-pubsub", "io.github.handy.messaging.pubsubconnector.consumersystem.PubSubConsumerBuilder");
-        this.builderMap.put("photon-mq", "io.github.handy.messaging.photonconnector.consumersystem.PhotonConsumerBuilder");
+        this.builderMap.put("memcell-mq", "io.github.handy.messaging.memcellconnector.consumersystem.MemcellMessagingConsumerBuilder");
         this.builderMap.put("mqtt", "io.github.handy.messaging.mqttconnector.consumersystem.MqttConsumerBuilder");
     }
 

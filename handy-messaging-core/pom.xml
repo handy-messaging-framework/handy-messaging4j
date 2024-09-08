@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.github.handy-messaging-framework</groupId>
         <artifactId>hmf4j</artifactId>
-        <version>1.0.1</version>
+        <version>1.1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>hmf4j-core</artifactId>
@@ -28,7 +28,7 @@
         <developer>
             <name>Aron Sajan Philip</name>
             <email>arondeveloper@yahoo.com</email>
-            <organization>com.github.aronsajan</organization>
+            <organization>Handy-Messaging-Framework</organization>
             <url>https://aronsajan.github.io/</url>
         </developer>
     </developers>
@@ -46,7 +46,7 @@
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-interface</artifactId>
-            <version>1.0.1</version>
+            <version>1.1.0</version>
         </dependency>
         <dependency>
             <groupId>com.typesafe.akka</groupId>
@@ -85,7 +85,7 @@
         <dependency>
             <groupId>io.github.handy-messaging-framework</groupId>
             <artifactId>hmf4j-types-simplemessage</artifactId>
-            <version>1.0.1</version>
+            <version>1.1.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

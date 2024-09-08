@@ -7,7 +7,7 @@
     <groupId>io.github.handy-messaging-framework</groupId>
     <artifactId>hmf4j</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <description>A library abstracting various messaging systems. Allows a producer and consumer to interact in an
         asynchronous messaging system
     </description>
@@ -19,8 +19,8 @@
         <module>handy-messaging-google-pubsub-connector</module>
         <module>handy-messaging-types-simplemessage</module>
         <module>handy-messaging-test-toolkit</module>
-        <module>handy-messaging-photon-mq</module>
-        <module>handy-messaging-photon-connector</module>
+        <module>handy-messaging-memcell-messagingsystem</module>
+        <module>handy-messaging-memcell-connector</module>
         <module>handy-messaging-mqtt-connector</module>
     </modules>
 
@@ -35,7 +35,7 @@
         <developer>
             <name>Aron Sajan Philip</name>
             <email>arondeveloper@yahoo.com</email>
-            <organization>com.github.aronsajan</organization>
+            <organization>Handy-Messaging-Framework</organization>
             <url>https://aronsajan.github.io/</url>
         </developer>
     </developers>
