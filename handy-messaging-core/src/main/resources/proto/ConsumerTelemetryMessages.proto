@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package ConsumerTelemetryMessages;
+
+option java_package = "io.github.handy.messaging.core.consumer.analytics";
+option java_outer_classname = "ConsumerTelemetryMessages";
+
+message NewMessageReceived{
+  string message_id = 1;
+  int64 receivedTSEpoch = 2;
+  bytes message_payload = 3;
+}

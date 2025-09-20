@@ -26,14 +26,17 @@ package io.github.handy.messaging.core.consumer;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
+import io.github.handy.messaging.core.configuration.BootConfiguration;
 import io.github.handy.messaging.core.configuration.Profile;
 import io.github.handy.messaging.core.configuration.ProfileHelper;
+import io.github.handy.messaging.core.consumer.analytics.AnalyticsActorFactory;
 import io.github.handy.messaging.interfaces.MessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
+
+import javax.management.RuntimeErrorException;
 
 /**
  * The MessageConsumingSystem class is a singleton class that is responsible for setting up the message consuming system
@@ -45,6 +48,7 @@ public class MessageConsumingSystem {
     private ActorSystem messageConsumerSystem;
     private static Optional<MessageConsumingSystem> consumingSystemInstance = Optional.empty();
     private Logger LOGGER = LoggerFactory.getLogger(MessageConsumingSystem.class);
+    private ActorRef analyticsActor;
 
     /**
      * The getInstance method is responsible for returning the singleton instance of the MessageConsumingSystem class.
@@ -60,6 +64,16 @@ public class MessageConsumingSystem {
     private MessageConsumingSystem(){
         LOGGER.info("Initialized Messaging Consuming System");
         this.messageConsumerSystem = ActorSystem.create("MessageConsumingSystem");
+        this.initializeAnalyticsActor();
+    }
+
+    private void initializeAnalyticsActor(){
+        try{
+            String analyticsEndpoint = BootConfiguration.getConfiguration().getHandyMessagingConfiguration().getAnalyticsWebhookEndpoint();
+            this.analyticsActor = AnalyticsActorFactory.initializeAnalyticsActor(analyticsEndpoint, messageConsumerSystem).get();
+        }  catch(InterruptedException | ExecutionException ex) {
+            throw new RuntimeException(ex.getMessage());
+        }
     }
 
     /**
@@ -87,6 +101,7 @@ public class MessageConsumingSystem {
                     queueName,
                     messageTypeClass,
                     messageHandler,
+                    this.analyticsActor,
                     this.messageConsumerSystem).get();
             consumerChannelRoot.tell(new MessageChannelRootActor.StartConsumerChannel(), ActorRef.noSender());
         } catch (InterruptedException | ExecutionException ex){

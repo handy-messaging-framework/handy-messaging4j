@@ -61,6 +61,7 @@ public class MessageChannelRootActorFactory {
                                                       String queueName,
                                                       String messageTypeClass,
                                                       MessageHandler messageHandler,
+                                                      ActorRef analyticsActor,
                                                       ActorSystem messageConsumerSystem){
         MessageChannelRootActorFactory rootActorFactory = new MessageChannelRootActorFactory();
         String rootActorName = String.format(CONSUMER_ROOT_ACTOR_TEMPLATE, profile.getProfileName(), queueName);
@@ -70,6 +71,7 @@ public class MessageChannelRootActorFactory {
                 queueName,
                 messageTypeClass,
                 messageHandler,
+                analyticsActor,
                 rootActorFactory::onInitilizationCallback), rootActorName);
 
         return rootActorFactory.initializationFuture;

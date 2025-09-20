@@ -24,6 +24,8 @@
 
 package io.github.handy.messaging.core.configuration;
 
+import java.util.stream.Stream;
+
 /**
  * Class to hold the configuration constants
  */

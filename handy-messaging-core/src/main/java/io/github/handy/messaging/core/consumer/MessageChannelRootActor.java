@@ -68,6 +68,7 @@ public class MessageChannelRootActor extends AbstractActor {
                                    String queueName,
                                    String messageTypeClass,
                                    MessageHandler messageHandler,
+                                   ActorRef analyticsActor,
                                    ActorInitializationCallback onInitializationComplete){
         this.channelId = String.format("CHANNEL-%s-%s", profile.getProfileName(), queueName);
         this.channelId = this.channelId.replace('/', '_');
@@ -83,6 +84,7 @@ public class MessageChannelRootActor extends AbstractActor {
 
         this.publisherActor = this.context().actorOf(ConsumerActor.getActorProperties(profile,
                 self(),
+                analyticsActor,
                 queueName,
                 messageTypeClass,
                 this.channelId,
@@ -143,7 +145,7 @@ public class MessageChannelRootActor extends AbstractActor {
         LOGGER.info(String.format("ROOT-ACTOR %s SHUT DOWN", this.self()));
     }
 
-    public static Props getActorProperties(Profile profile, String queueName, String messageTypeClass, MessageHandler messageHandler, ActorInitializationCallback onInitializationCallback){
-        return Props.create(MessageChannelRootActor.class, profile, queueName, messageTypeClass, messageHandler, onInitializationCallback);
+    public static Props getActorProperties(Profile profile, String queueName, String messageTypeClass, MessageHandler messageHandler, ActorRef analyticsActor, ActorInitializationCallback onInitializationCallback){
+        return Props.create(MessageChannelRootActor.class, profile, queueName, messageTypeClass, messageHandler, analyticsActor, onInitializationCallback);
     }
 }
