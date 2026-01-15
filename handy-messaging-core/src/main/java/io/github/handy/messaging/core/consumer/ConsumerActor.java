@@ -30,7 +30,7 @@ import akka.actor.PoisonPill;
 import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
 import io.github.handy.messaging.core.configuration.Profile;
-import io.github.handy.messaging.core.consumer.analytics.AnalyticsActor;
+import io.github.handy.messaging.core.consumer.telemetry.TelemetryActor;
 import io.github.handy.messaging.interfaces.Consumer;
 import io.github.handy.messaging.interfaces.EnqueueMessage;
 import io.github.handy.messaging.interfaces.Message;
@@ -149,7 +149,8 @@ public class ConsumerActor extends AbstractActor {
     private String channelId;
     private Logger LOGGER = LoggerFactory.getLogger(ConsumerActor.class);
     private ActorRef rootActor;
-    private ActorRef analyticsActor;
+    private ActorRef telemetryActor;
+    private String queueName;
 
     /**
      * Constructor to initialize the consumer actor
@@ -163,7 +164,7 @@ public class ConsumerActor extends AbstractActor {
      */
     public ConsumerActor(Profile profile,
                          ActorRef rootActor,
-                         ActorRef analyticsActor,
+                         ActorRef telemetryActor,
                          String queueName,
                          String messageTypeClass,
                          String channelId,
@@ -171,13 +172,15 @@ public class ConsumerActor extends AbstractActor {
                          long maxPollIntervalMs) {
         this.messageCollection = new ArrayList<>();
         this.rootActor = rootActor;
-        this.analyticsActor = analyticsActor;                      
+        this.telemetryActor = telemetryActor;
+
         this.consumer = new MessageConsumerBuilder()
                 .setProfile(profile)
                 .setQueueName(queueName)
                 .setConsumerActor(this.self())
                 .setMessageTypeClass(messageTypeClass)
                 .build();
+        this.queueName = queueName;
         this.channelId = channelId;
         this.maxMessagesPerBatch = maxMessagesPerBatch;
         this.maxPollIntervalMillis = maxPollIntervalMs;
@@ -186,7 +189,7 @@ public class ConsumerActor extends AbstractActor {
 
     public static Props getActorProperties(Profile profile,
                                            ActorRef rootActor,
-                                           ActorRef analyticsActor,
+                                           ActorRef telemetryActor,
                                            String queueName,
                                            String messageTypeClass,
                                            String channelId,
@@ -195,7 +198,7 @@ public class ConsumerActor extends AbstractActor {
         return Props.create(ConsumerActor.class,
                 profile,
                 rootActor,
-                analyticsActor,
+                telemetryActor,
                 queueName,
                 messageTypeClass,
                 channelId,
@@ -249,7 +252,7 @@ public class ConsumerActor extends AbstractActor {
      */
     void onMessageRecord(Message message) {
         LOGGER.info(String.format("%s Buffering data", this.self()));
-        this.analyticsActor.tell(new AnalyticsActor.MessageReceived(message, Date.from(Instant.now())), this.self());
+        this.telemetryActor.tell(new TelemetryActor.MessageReceived(this.queueName, message, Date.from(Instant.now())), this.self());
         this.messageCollection.add(message);
         if (messageCollection.size() >= this.maxMessagesPerBatch) {
             this.flushBufferedData();

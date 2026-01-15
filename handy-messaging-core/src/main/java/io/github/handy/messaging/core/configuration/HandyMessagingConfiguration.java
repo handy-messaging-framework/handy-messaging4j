@@ -33,7 +33,7 @@ import java.util.List;
 public class HandyMessagingConfiguration implements Cloneable{
 
     List<Profile> profiles;
-    String analyticsWebhookEndpoint;
+    String telemetryHandler;
 
     /**
      * Constructor to initialize the profiles
@@ -58,12 +58,12 @@ public class HandyMessagingConfiguration implements Cloneable{
         this.profiles = profiles;
     }
 
-    public String getAnalyticsWebhookEndpoint(){
-        return this.analyticsWebhookEndpoint;
+    public String getTelemetryHandler() {
+        return telemetryHandler;
     }
-    
-    public void setAnalyticsWebhookEndpoint(String analyticsWebhookEndpoint){
-        this.analyticsWebhookEndpoint = analyticsWebhookEndpoint;
+
+    public void setTelemetryHandler(String telemetryHandler) {
+        this.telemetryHandler = telemetryHandler;
     }
 
     /**
@@ -77,7 +77,7 @@ public class HandyMessagingConfiguration implements Cloneable{
         this.profiles.forEach(profile -> {
             configuration.profiles.add(profile.clone());
         }); 
-        configuration.setAnalyticsWebhookEndpoint(this.analyticsWebhookEndpoint);
+        configuration.setTelemetryHandler(this.telemetryHandler);
         return configuration;
     }
 }

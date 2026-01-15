@@ -68,7 +68,7 @@ public class MessageChannelRootActor extends AbstractActor {
                                    String queueName,
                                    String messageTypeClass,
                                    MessageHandler messageHandler,
-                                   ActorRef analyticsActor,
+                                   ActorRef telemetryActor,
                                    ActorInitializationCallback onInitializationComplete){
         this.channelId = String.format("CHANNEL-%s-%s", profile.getProfileName(), queueName);
         this.channelId = this.channelId.replace('/', '_');
@@ -84,7 +84,7 @@ public class MessageChannelRootActor extends AbstractActor {
 
         this.publisherActor = this.context().actorOf(ConsumerActor.getActorProperties(profile,
                 self(),
-                analyticsActor,
+                telemetryActor,
                 queueName,
                 messageTypeClass,
                 this.channelId,
